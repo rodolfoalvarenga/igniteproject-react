@@ -74,11 +74,11 @@ const GameDetail = ({ pathId }) => {
         <CardShadow className="shadow" onClick={exitDetailHandler}>
           <Detail layoutId={pathId}>
             <Stats>
-              <div className="rating">
+              <Rating>
                 <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                 <p>Rating: {game.rating}</p>
                 {getStars()}
-              </div>
+              </Rating>
               <Info>
                 <h3>Platforms</h3>
                 <Platforms>
@@ -151,6 +151,7 @@ const Detail = styled(motion.div)`
   z-index: 10;
   img {
     width: 100%;
+    margin-top: 1rem;
   }
 `;
 
@@ -175,6 +176,24 @@ const Platforms = styled(motion.div)`
   img {
     margin-left: 3rem;
   }
+  @media only screen and (max-width: 932px) {
+    /* display: flex;
+    flex-direction: row; */
+    /* margin-top: -1rem;
+    margin-bottom: -4.8rem; */
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    img {
+      margin-top: 0rem;
+      margin-bottom: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 `;
 
 const Media = styled(motion.div)`
@@ -182,10 +201,27 @@ const Media = styled(motion.div)`
   img {
     width: 100%;
   }
+  @media only screen and (max-width: 932px) {
+    img {
+      margin-top: -5rem;
+      margin-bottom: -4rem;
+    }
+  }
 `;
 
 const Description = styled(motion.div)`
   margin: 5rem 0rem;
+`;
+
+const Rating = styled(motion.div)`
+  @media only screen and (max-width: 932px) {
+    img {
+      margin-top: 1rem;
+      margin-bottom: 10rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 `;
 
 export default GameDetail;
